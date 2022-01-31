@@ -1,11 +1,11 @@
 import throttle from 'lodash/throttle';
 
-const onPlay = function (data) {
+const onPlay = throttle(function (data) {
     localStorage.setItem("videoplayer-current-time", data.seconds);
    
-};
+}, 3000);
 
-player.on('timeupdate', throttle(onPlay, 1000));
+player.on('timeupdate', onPlay);
  
 
 
