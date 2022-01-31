@@ -1,4 +1,4 @@
-import throttle from 'lodash.throttle';
+import throttle from 'lodash/throttle';
 
 const onPlay = function (data) {
     localStorage.setItem("videoplayer-current-time", data.seconds);
