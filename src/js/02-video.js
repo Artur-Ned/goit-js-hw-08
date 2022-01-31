@@ -1,9 +1,11 @@
-const onPlay = function(data) {
+import throttle from 'lodash.throttle';
+
+const onPlay = function (data) {
     localStorage.setItem("videoplayer-current-time", data.seconds);
    
 };
 
-player.on('timeupdate', onPlay);
+player.on('timeupdate', throttle(onPlay, 1000));
  
 
 
@@ -23,3 +25,8 @@ player.setCurrentTime(time).then(function(seconds) {
     }
 });
 
+/**
+ * git add .
+git commit -m "description"
+git push
+ */
