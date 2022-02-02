@@ -21,19 +21,9 @@ player.on('timeupdate', throttle(onPlay, 1000));
  
 
 
-const time = localStorage.getItem("videoplayer-current-time");
-player.setCurrentTime(time) .then(function(seconds) {   
-}).catch(function(error) {
-    switch (error.name) {
-        case 'RangeError':
-            console.log("the time was less than 0 or greater than the videos duration"); 
-            break;
+const time = localStorage.getItem("videoplayer-current-time") ?? 0;
 
-        default:
-            console.log("other error");
-            break;
-    }
-});
+player.setCurrentTime(time) 
 
 /**
  * git add .
