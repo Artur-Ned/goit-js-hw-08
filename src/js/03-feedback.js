@@ -50,7 +50,7 @@ function onFormSubmit(event) {
 const formtext = localStorage.getItem('STORAGE_KEY');
 const saveMassages = JSON.parse(formtext);
 console.log(saveMassages.email);
-console.log(saveMassages.email);
+console.log(saveMassages.message);
 
 // let virtMassages = {
 //     email: "tes@ueue1",
