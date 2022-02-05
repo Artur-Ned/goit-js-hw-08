@@ -12,36 +12,68 @@ ref.form.addEventListener('input', onText);
 ref.form.addEventListener('submit', onFormSubmit);
 
 const formData = {};
+checkLocalStor()
 function onText(event) {
-   
-    
     formData[event.target.name] = event.target.value;
-
-    console.log(formData);
     localStorage.setItem("STORAGE_KEY", JSON.stringify(formData));  
-    
-    //   // console.log(e.target.value);
- 
-    // let formElenet = event.currentTarget.elements;
-    // let email = formElenet.email.value;
-    // let message = formElenet.message.value;
-      
- 
-    // console.log("hello");
 }  
-  
+        
+function checkLocalStor() { 
+
+    const formtext = localStorage.getItem('feedback-form-state');
+   
+    for (const elem in formtext) {
+        console.log(elem)
+    }
+    
+//     const saveMassages = JSON.parse(formtext);
+//     // console.log(saveMassages);
+// for (const key of formtext) { 
+// console.log(Object.keys(formtext)); 
+// console.log(Object.values(formtext));   
+//     }
+}   
+
+// console.log(formData);
 /**функция для формы */
+
+
 function onFormSubmit(event) {
     event.preventDefault();
-     
+    event.target.reset(); 
    
     // localStorage.removeItem("STORAGE_KEY");
     console.log(formData);
-    event.target.reset();
+   
 }
 
+const formtext = localStorage.getItem('STORAGE_KEY');
+const saveMassages = JSON.parse(formtext);
+console.log(saveMassages.email);
+console.log(saveMassages.email);
+
+// let virtMassages = {
+//     email: "tes@ueue1",
+//     message: "qwqeqeeq",
+// }
 
 
+
+
+
+
+
+console.log(saveMassages);
+let message = '';
+let email = '';
+for (elem in saveMassages) {
+    message = saveMassages[elem];
+    // email = saveMassages[elem]; 
+    // console.log(message);
+    console.log(message);
+
+
+}
 
     // let formData = {
     //     email,
