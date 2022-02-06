@@ -23,12 +23,11 @@ function checkFormValue() {
     const formtext = localStorage.getItem('STORAGE_KEY');
     const saveMassages = JSON.parse(formtext);
   if (saveMassages) { 
-    emailRef.value = saveMassages.email;
-    textareaRef.value = saveMassages.message;
+    emailRef.value = saveMassages.email || "";
+    textareaRef.value = saveMassages.message || "";
     }
 
    }   
-    
 
 
 function onFormSubmit(event) {
