@@ -4,11 +4,9 @@
 const STORAGE_KEY = 'feedback-form-state';
 const formData = {};
 const formRef = document.querySelector('.feedback-form');
-const textareaRef = document.querySelector('.feedback-form message');
-const emailRef = document.queryCommandIndeterm('.feedback-form input');
+const textareaRef = document.querySelector('.feedback-form textarea');
+const emailRef = document.querySelector('.feedback-form input');
 
-console.log(typeof(emailRef)); //boolean
-console.log(typeof(textareaRef));//object
 
 formRef.addEventListener('input', onText);
 formRef.addEventListener('submit', onFormSubmit);
@@ -24,21 +22,29 @@ function onText(event) {
 function checkFormValue() {
     const formtext = localStorage.getItem('feedback-form-state');
     const saveMassages = JSON.parse(formtext);
-    console.log(saveMassages.message);
-    console.log(saveMassages.email);
+  if (saveMassages) { 
     emailRef.value = saveMassages.email;
     textareaRef.value = saveMassages.message;
-    
-}   
+    }
+
+   }   
     
 
 
 function onFormSubmit(event) {
     event.preventDefault();
-    // event.target.reset(); 
+    
+    if (emailRef.value === "" || textareaRef.value === "") {
+        alert("Нужно заполнить все формы")
+        return
+    }
+    
+    event.target.reset(); 
    
-    // localStorage.removeItem("STORAGE_KEY");
-    console.log("formData");
+    localStorage.removeItem("feedback-form-state");
+    console.log(`E-mail: ${formData.email}, Message: ${formData.message}`);
    
 }
+
+
 
