@@ -15,7 +15,7 @@ checkFormValue()
 
 function onText(event) {
     formData[event.target.name] = event.target.value;
-    localStorage.setItem("STORAGE_KEY", JSON.stringify(formData));  
+    localStorage.setItem('STORAGE_KEY', JSON.stringify(formData));  
 }  
   
 
@@ -41,7 +41,7 @@ function onFormSubmit(event) {
     
     event.target.reset(); 
    
-    localStorage.removeItem("STORAGE_KEY");
+    localStorage.removeItem('STORAGE_KEY');
     console.log(`E-mail: ${formData.email}, Message: ${formData.message}`);
    
 }
