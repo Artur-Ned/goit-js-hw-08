@@ -7,8 +7,8 @@ const formRef = document.querySelector('.feedback-form');
 const textareaRef = document.querySelector('.feedback-form message');
 const emailRef = document.queryCommandIndeterm('.feedback-form input');
 
-console.log(typeof(emailRef));
-console.log(typeof(textareaRef));
+console.log(typeof(emailRef)); //boolean
+console.log(typeof(textareaRef));//object
 
 formRef.addEventListener('input', onText);
 formRef.addEventListener('submit', onFormSubmit);
